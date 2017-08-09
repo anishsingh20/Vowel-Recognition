@@ -69,7 +69,18 @@ mlp$output
 #defining the optimization strategy and the loss function to be used
 mlp %>%compile(loss="categorical_crossentropy",
                optimizer="sgd",metrics="accuracy")
+#the loss function used in classification tasks is crossentropy function
 
+
+#---------------Trining 
+
+#fitting the model to the data
+history<-mlp %>% fit(train_x,train_y,epochs=100,batch_size=5,
+                    validation_split=0.2,
+                    verbose=1)
+#training with 100 epochs -i.e 100 iterations over the entire data set
+#Output
+#loss: 0.6969 - acc: 0.7701 - val_loss: 3.3630 - val_acc: 0.2736
 
 
 
