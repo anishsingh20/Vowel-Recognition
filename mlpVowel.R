@@ -14,6 +14,10 @@ require(keras)#a deep learning package which uses tensorflow as a backend
 cat("The dimentions of Train data set is:",dim(vowel.train))
 cat("The dimentions of Test data set is:",dim(vowel.test))
 
+#checking the summary statistics
+summary(vowel.train)
+
+
 #train data
 train_x<-vowel.train[-1]#the inputs or predictors
 train_y<-vowel.train[1]#the class labels of target vector
@@ -32,8 +36,17 @@ train_y<-as.matrix(train_y)
 test_y<-as.matrix(test_y)
 
 #comverting Target values to one-hot encoding i.e binary class matrix
-train_y<-to_categorical(train_y) 
-test_y<-to_categorical(test_y)
+train_y<-to_categorical(train_y,num_classes = 12) 
+test_y<-to_categorical(test_y,num_classes = 12)
+
+
+#-----------------------
+
+#defining the keras model
+
+mlp<-keras_model_sequential() # a keras sequqntial model
+
+
 
 
 
