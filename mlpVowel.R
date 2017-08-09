@@ -77,12 +77,16 @@ mlp %>%compile(loss="categorical_crossentropy",
 #fitting the model to the data
 history<-mlp %>% fit(train_x,train_y,epochs=100,batch_size=5,
                     validation_split=0.2,
-                    verbose=1)
+                    verbose=1,callbacks=callback_tensorboard(log_dir = "logs/run_a"))
 #training with 100 epochs -i.e 100 iterations over the entire data set
 #Output
-#loss: 0.6969 - acc: 0.7701 - val_loss: 3.3630 - val_acc: 0.2736
+#loss: 0.4268 - acc: 0.8626 - val_loss: 4.4864 - val_acc: 0.2736
 
 
+#visualizing the Model's training metrics
+plot(history)
+
+tensorboard() #using tensorboard visualization
 
 
 
