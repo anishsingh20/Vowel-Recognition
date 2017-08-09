@@ -17,6 +17,12 @@ cat("The dimentions of Test data set is:",dim(vowel.test))
 train_x<-vowel.train[-1]#the inputs or predictors
 train_y<-vowel.train[1]#the class labels of target vector
 
+#Test data
+test_x<-vowel.test[-1]
+test_y<-vowel.test[1]
+
+
+
 head(vowel.train)
 
 #converting the data to matrix format to feed it to a MLP 
