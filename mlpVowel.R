@@ -56,6 +56,15 @@ mlp %>%
   layer_dense(units=12,activation="softmax") #to compute probabilities
   #softmax activation = exp(y)/exp(y_i)
 
+summary(mlp) #model has 196 params
+
+get_config(mlp)
+mlp$layers
+get_layer(mlp,index=1)
+
+
+#defining the optimization strategy and the loss function to be used
+
 
 
 
