@@ -62,9 +62,13 @@ get_config(mlp)
 mlp$layers
 get_layer(mlp,index=1)
 
+#information about the layers added
+mlp$input
+mlp$output
 
 #defining the optimization strategy and the loss function to be used
-
+mlp %>%compile(loss="categorical_crossentropy",
+               optimizer="sgd",metrics="accuracy")
 
 
 
