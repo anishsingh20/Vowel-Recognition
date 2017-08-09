@@ -3,3 +3,24 @@ title: "Vovel Recognition"
 output: html_notebook
 ---
 
+
+
+
+```{r,}
+require(ElemStatLearn)#contains the dataset
+require(keras)
+
+```
+
+Checking the dimentions of the data set and the summary statistics
+```{r}
+cat("The dimentions of Train data set is:",dim(vowel.train))
+cat("The dimentions of Test data set is:",dim(vowel.test))
+
+#checking the summary statistics
+summary(vowel.train)
+
+
+
+```
+
