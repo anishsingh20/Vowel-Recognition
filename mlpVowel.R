@@ -10,6 +10,7 @@ require(keras)#a deep learning package which uses tensorflow as a backend
 
 #checking the dimentions of test and train data
 
+
 cat("The dimentions of Train data set is:",dim(vowel.train))
 cat("The dimentions of Test data set is:",dim(vowel.test))
 
@@ -17,13 +18,25 @@ cat("The dimentions of Test data set is:",dim(vowel.test))
 train_x<-vowel.train[-1]#the inputs or predictors
 train_y<-vowel.train[1]#the class labels of target vector
 
+#the class labels are the 11 steady state vowels used in British English
+
+
 #Test data
 test_x<-vowel.test[-1]
 test_y<-vowel.test[1]
 
+#converting to matrix format
+train_x<-as.matrix(train_x)
+test_x<-as.matrix(test_x)
+train_y<-as.matrix(train_y)
+test_y<-as.matrix(test_y)
+
+#comverting Target values to one-hot encoding i.e binary class matrix
+train_y<-to_categorical(train_y) 
+test_y<-to_categorical(test_y)
 
 
-head(vowel.train)
 
-#converting the data to matrix format to feed it to a MLP 
+
+
 
