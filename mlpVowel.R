@@ -69,6 +69,8 @@ mlp$output
 #defining the optimization strategy and the loss function to be used
 mlp %>%compile(loss="categorical_crossentropy",
                optimizer="sgd",metrics="accuracy")
+
+#using stochastic gradient descent as optimization strategy to update weights
 #the loss function used in classification tasks is crossentropy function
 
 
@@ -99,10 +101,18 @@ classes<- mlp %>% predict_classes(test_x,batch_size=128,verbose=1)
 classes<-data.frame(classes)
 #confusion matrix - between test labels and predicted labels on Test set 
 table(pred=classes$classes,actual=test_y$y)
-mean(classes$classes==test_y$y) #accuracy of 47 % on Test set,i.e 47% correct clasifications
+mean(classes$classes==test_y$y) #accuracy of 47 % on Test set,i.e 47% correct classifications
 
 
+#evaluating the Model on Test Set
 
+score<-mlp %>% evaluate(test_x,test_y,batch_size=128,verbose=1)
+score
+#accuracy of 47 % only , surely we need some improvemets and fine tuning as well
+# as hyperparameter tuning too
+
+#saving the model
+save_model_hdf5(mlp,"model1")
 
 
 
