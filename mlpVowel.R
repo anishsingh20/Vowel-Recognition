@@ -90,5 +90,22 @@ tensorboard() #using tensorboard visualization
 
 
 
+#testing the Model's perfomance on test data set
+
+#predicting labels of new data
+
+classes<- mlp %>% predict_classes(test_x,batch_size=128,verbose=1)
+#predicting classes on test data
+classes<-data.frame(classes)
+#confusion matrix - between test labels and predicted labels on Test set 
+table(pred=classes$classes,actual=test_y$y)
+mean(classes$classes==test_y$y) #accuracy of 47 % on Test set,i.e 47% correct clasifications
+
+
+
+
+
+
+
 
 
