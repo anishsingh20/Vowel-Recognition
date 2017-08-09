@@ -44,7 +44,18 @@ test_y<-to_categorical(test_y,num_classes = 12)
 
 #defining the keras model
 
-mlp<-keras_model_sequential() # a keras sequqntial model
+mlp<-keras_model_sequential() # a keras sequential model
+
+
+#defining the parameters and architecture
+#adding layers to the model
+mlp %>%
+  #hidden layer=8 hidden units
+  layer_dense(units=8,activation="relu",input_shape=c(10)) %>%
+  #output layer
+  layer_dense(units=12,activation="softmax") #to compute probabilities
+  #softmax activation = exp(y)/exp(y_i)
+
 
 
 
