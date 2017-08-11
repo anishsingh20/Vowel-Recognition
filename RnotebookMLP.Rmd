@@ -53,4 +53,38 @@ test_y<-to_categorical(test_y,num_classes = 12)
 
 ```
 
+--------------
+
+
+Now we need to define a Keras sequential model and its architecture with choosing the hyperparameters such as number of hidden units, optimizer to choose etc.
+
+```{r}
+mlp<-keras_model_sequential() # a keras sequential model
+
+
+#defining the parameters and architecture
+#adding layers to the model
+mlp %>%
+  #hidden layer=8 hidden units
+  layer_dense(units=8,activation="relu",input_shape=c(10)) %>%
+  #output layer
+  layer_dense(units=12,activation="softmax") #to compute probabilities
+  #softmax activation = exp(y)/exp(y_i)
+
+summary(mlp) #model has 196 params
+
+get_config(mlp)
+mlp$layers
+get_layer(mlp,index=1)
+
+#information about the layers added
+mlp$input
+mlp$output
+
+#defining the optimization strategy and the loss function to be used
+mlp %>%compile(loss="categorical_crossentropy",
+               optimizer="sgd",metrics="accuracy")
+
+
+```
 

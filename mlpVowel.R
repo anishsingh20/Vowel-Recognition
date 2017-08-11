@@ -114,6 +114,8 @@ score
 #saving the model
 save_model_hdf5(mlp,"model1")
 
+load_model_hdf5("model1")
+
 
 
 
