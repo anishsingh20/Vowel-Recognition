@@ -137,6 +137,9 @@ mlp2 %>%#input layer
   layer_dense(units=12,activation="softmax")
 
 
+#compiling the model
+mlp2 %>% compile(loss="categorical_crossentropy",optimizer="adam",metrics="accuracy")
+
 
 
 
