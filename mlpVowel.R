@@ -118,6 +118,10 @@ load_model_hdf5("model1")
 
 
 
+#############################################################################
+######################--------MODEL2--------#################################
 
+#now I will fine tune the model and change the hyperparameters to improve the
+#accuracy of the MLP model
 
 
