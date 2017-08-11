@@ -124,4 +124,21 @@ load_model_hdf5("model1")
 #now I will fine tune the model and change the hyperparameters to improve the
 #accuracy of the MLP model
 
+mlp2<-keras_model_sequential()
+
+
+#defining the architecture
+
+mlp2 %>%#input layer
+  layer_dense(units=20,activation="relu",input_shape=c(10)) %>%
+  #hidden layers
+  layer_dense(units=8,activation="relu") %>%
+  #output layer
+  layer_dense(units=12,activation="softmax")
+
+
+
+
+
+
 
