@@ -88,3 +88,6 @@ mlp %>%compile(loss="categorical_crossentropy",
 
 ```
 
+__Cross entropy__ is simply the negetive log likelihood of the probabilities of the predicted classes and the actual class labels.It is used as a Loss function in lots of Classifiers.In this case it is multiclass cross entropy as we are dealing with multiple classes.
+$$ Entropy = -\sum_{i=1}^{K}t_i.log(y_i)$$
+where $K$ are the number of classes and $t_i$ is the probability of actual $K$ class labels in the dataset, and $y_i$ is the predicted probabilities of the $K$ classes by the Model.
