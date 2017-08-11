@@ -158,5 +158,20 @@ score1 #accuracy reduced to 42%
 
 
 
+#---------------------
+#Model3
+
+
+mlp3<-keras_model_sequential()
+
+mlp3 %>% layer_dense(units=5,input_shape=c(10),activation="relu") %>%
+          layer_dense(units=12,activation="softmax")
+
+
+
+
+
+
+
 
 
