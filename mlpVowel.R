@@ -140,6 +140,21 @@ mlp2 %>%#input layer
 #compiling the model
 mlp2 %>% compile(loss="categorical_crossentropy",optimizer="adam",metrics="accuracy")
 
+summary(mlp2) #this model has 496 parameters and 3 dense layers , 1 hidden layer
+
+mlp2$weights
+
+#fitting the model with 100 epochs
+history1<-mlp2 %>% fit(train_x,train_y,epochs=100,verbose=TRUE,batch_size=10,
+                       validation_split=0.2,callbacks=callback_tensorboard(log_dir = "logs/run_b"))
+
+#results after training 1s - loss: 0.3476 - acc: 0.9028 - val_loss: 4.1848 - val_acc: 0.3113
+#again the validation accuracy is very less
+
+plot(history1)
+
+score1<-evaluate(mlp2,test_x,test_y,batch_size = 128,verbose=T)
+score1 #accuracy reduced to 42%
 
 
 
