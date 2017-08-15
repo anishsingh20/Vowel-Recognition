@@ -170,8 +170,42 @@ mlp3 %>% layer_dense(units=5,input_shape=c(10),activation="relu") %>%
 
 
 
+sgd<-optimizer_sgd(lr=0.001)
+
+mlp3 %>% compile(loss="categorical_crossentropy",optimizer=sgd,metrics="accuracy")
+
+
+history2<-mlp3 %>% fit(train_x,train_y,epochs=200,batch_size=5,validation_split=0.2,
+                       verbose=1,callbacks=callback_tensorboard(log_dir = "logs/run_c"))
+
+scor2e<-mlp3 %>% evaluate(test_x,test_y,batch_size=128,verbose=1)
+scor2e
 
 
 
+#_--------------------------------------------------
+#4th model
 
 
+
+mlp4<-keras_model_sequential()
+
+mlp4 %>% layer_dense(units=8,input_shape=c(10),activation="relu") %>%
+  layer_dense(units=12,activation="softmax")
+
+
+
+#learning rate as=0.001
+
+mlp4 %>% compile(loss="categorical_crossentropy",
+                 optimizer="adam",metrics="accuracy")
+
+
+history3<-mlp4 %>% fit(train_x,train_y,epochs=200,batch_size=5,validation_split=0.2,
+                       verbose=1,
+                       callbacks=callback_tensorboard(log_dir = "logs/run_d"))
+
+
+
+scor2e<-mlp3 %>% evaluate(test_x,test_y,batch_size=128,verbose=1)
+scor2e
